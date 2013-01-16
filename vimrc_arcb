@@ -1,0 +1,61 @@
+syntax on
+color desert
+set bg=dark
+set hls
+set ru
+set nu
+set cin
+se cul
+set showcmd
+
+" Open and close all the three plugins on the same time
+"nmap    :TrinityToggleAll
+
+" Open and close the srcexpl.vim separately
+"nmap    :TrinityToggleSourceExplorer
+
+" Open and close the taglist.vim separately
+"nmap   :TrinityToggleTagList
+
+" Open and close the NERD_tree.vim separately
+"nmap   :TrinityToggleNERDTree 
+map <f9> :Tlist<CR>
+nmap <C-a>q /<C-R>=expand("<cword>")<CR>
+nmap <C-a>a :<C-R>=expand("<cword>")<CR>
+nmap <C-a>l :!less <C-R>=expand("<cfile>")<CR><CR>
+set splitright
+set term=xterm-color
+set background=dark
+
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
+
+set runtimepath+=~/.vim_arcb
+let mapleader = ","
+let g:mapleader = ","
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nerd Tree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>nn :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeFromBookmark
+map <leader>nf :NERDTreeFind<cr>
+
+""""""""""""""""""""""""""""""
+" => bufExplorer plugin
+""""""""""""""""""""""""""""""
+"let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerFindActive=1
+let g:bufExplorerSortBy='name'
+map <leader>o :BufExplorer<cr>
+"map <leader>o :BufExplorerHorizontalSplit<cr>
+
+
