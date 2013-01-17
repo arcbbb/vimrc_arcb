@@ -1,3 +1,4 @@
+set runtimepath+=~/.vim_arcb
 syntax on
 color desert
 set bg=dark
@@ -38,7 +39,6 @@ if has("multi_byte")
 endif
 
 
-set runtimepath+=~/.vim_arcb
 let mapleader = ","
 let g:mapleader = ","
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -56,6 +56,3 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerFindActive=1
 let g:bufExplorerSortBy='name'
 map <leader>o :BufExplorer<cr>
-"map <leader>o :BufExplorerHorizontalSplit<cr>
-
-

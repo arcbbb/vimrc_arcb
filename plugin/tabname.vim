@@ -133,7 +133,7 @@ augroup TabLabelNameAU
     au WinEnter * call s:TabWinEnter()
 augroup END
 
-call s:RefreshTab()
+"call s:RefreshTab()
 
 command! -nargs=1 TName call s:SetTabName(<args>)
 command! TNoName call s:RemoveTabName()
