@@ -69,3 +69,6 @@ endif
 "set statusline=%{g:colors_name}
 set laststatus=2
 set statusline=%t\ %=%y\ [%{&ff}]\ [%{v:lang}]\ [%{&fenc}]
+nmap <leader>* :syn match TempKeyword /\<<C-R>=expand("<cword>")<CR>\>/<CR>
+nmap <leader>c :syn clear TempKeyword<CR>
+hi TempKeyword ctermfg=red
