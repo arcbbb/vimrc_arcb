@@ -72,3 +72,17 @@ set statusline=%t\ %=%y\ [%{&ff}]\ [%{v:lang}]\ [%{&fenc}]
 nmap <leader>* :syn match TempKeyword /\<<C-R>=expand("<cword>")<CR>\>/<CR>
 nmap <leader>c :syn clear TempKeyword<CR>
 hi TempKeyword ctermfg=red
+
+nmap t gt
+nmap T gT
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+		\ | wincmd p | diffthis
+nnoremap <silent> <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR>
