@@ -6,7 +6,6 @@ set hls
 set ru
 set nu
 set cin
-se cul
 set showcmd
 
 " Open and close all the three plugins on the same time
@@ -86,3 +85,17 @@ com! DiffSaved call s:DiffWithSaved()
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		\ | wincmd p | diffthis
 nnoremap <silent> <F3> :redir @a<CR>:g//<CR>:redir END<CR>:new<CR>:put! a<CR>
+
+command Shell exe "lcd %:p:h| shell | lcd -"
+command GLoadHEAD exe "ene|r !git show :#"| exe "1d"
+nmap <leader>sh :Shell<CR>
+nmap <leader>l :ls<CR>
+nmap <leader>du :diffupdate<CR>
+nmap <leader>dt :windo diffthis<CR>
+nmap <leader>g :GLoadHEAD<CR>
+nmap <leader>e :Tex<CR>
+
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
+"se cul
+"se cuc
